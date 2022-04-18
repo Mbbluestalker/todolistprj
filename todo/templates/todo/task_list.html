@@ -1,0 +1,21 @@
+<h1>Hello</h1>
+
+
+<table>
+    <tr>
+        <th>Items</th>
+    </tr>
+    {% for task in tasks %}
+        <tr>
+            <td>{{task.pk}} -- {{task.title}}</td>
+            <td><a href="{% url 'task-detail' task.id %}">View</a></td>
+            <td><a href="{% url 'task-create'%}">Add</a></td>
+            <td><a href="{% url 'task-update' task.pk %}">Update</a></td>
+            <td><a href="{% url 'task-delete' task.pk %}">Delete</a></td>
+
+        </tr>
+        {% empty %}
+        <h3>No items in list</h3>
+        <a href="">Add Item</a>
+    {% endfor %}
+</table>
